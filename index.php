@@ -1,6 +1,5 @@
 <?php 	require_once 'db-connect.php';
 		include 'functions.php'; 
-		//$uid_db = unserialize(file_get_contents('.htuiddb'));
 ?>
 
 <!DOCTYPE html>
