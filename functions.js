@@ -48,7 +48,6 @@ function showModalError(message, locate) {
 		window.location.replace(locate);
 	}
 }
-//function enrollmentChangesRedirect(){if(null==getCookie("uid"))showModalPrompt();else{var e=getCookieValue("uid");location.href="?uID="+e}}
 
 function enrollmentChangesRedirect() {
 	var cookie = getCookie("uid");
@@ -62,8 +61,6 @@ function enrollmentChangesRedirect() {
 	}
 	
 }
-
-//function setCookie(e,t,i,n){let o=new Date;o.setTime(o.getTime()+864e5*i);let l="expires="+o.toUTCString();var u=window.location.pathname,a=u.substring(0,u.lastIndexOf("/"));if(document.cookie=e+"="+t+";"+l+";path="+a,"uid"==e){setCookie("nameSurname",nameSurname,90);var r=document.getElementById("cookie-button");r.setAttribute("onclick","deleteCookie('uid', '"+n+"');"),r.textContent="Usuń kod z pamięci przeglądarki"};showModal("Kod został poprawnie zapisany w pamięci przeglądarki.<br>Informacje będą przechowywane na Twoim urządzeniu przez maksymalnie 90 dni.")}
 
 function setCookie(name, value, exdays, currentUID) {
 	const d = new Date();
@@ -82,8 +79,6 @@ function setCookie(name, value, exdays, currentUID) {
 		showModal("Kod został poprawnie zapisany w pamięci przeglądarki.<br>Informacje będą przechowywane na Twoim urządzeniu przez maksymalnie 90 dni.")
 }
 
-//function deleteCookie(e,t){var i=window.location.pathname,n=i.substring(0,i.lastIndexOf("/"));if(document.cookie=e+"=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path="+n,"uid"==e){deleteCookie("nameSurname");var o=document.getElementById("cookie-button");o.setAttribute("onclick","setCookie('uid', '"+t+"', 90, '"+t+"');"),o.textContent="Zapisz kod w pamięci przeglądarki"};showModal("Informacje zostały trwale usunięte z pamięci przeglądarki.")}
-
 function deleteCookie(name, currentUID) {
 	var loc = window.location.pathname;
 	var dir = loc.substring(0, loc.lastIndexOf('/'));
@@ -97,8 +92,6 @@ function deleteCookie(name, currentUID) {
 		}
 		showModal("Informacje zostały trwale usunięte z pamięci przeglądarki.")
 }
-
-//function getCookie(e){var t=document.cookie,i=e+"=",n=t.indexOf("; "+i);if(-1==n){if(0!=(n=t.indexOf(i)))return null}else{n+=2;var o=document.cookie.indexOf(";",n);-1==o&&(o=t.length)}return decodeURI(t.substring(n+i.length,o))}
 
 function getCookie(name) {
 	var dc = document.cookie;
@@ -122,15 +115,11 @@ function getCookie(name) {
 	
 }
 
-//function getCookieValue(e){var t=`; ${document.cookie}`,i=t.split(`; ${e}=`);if(2===i.length)return i.pop().split(";").shift()}
-
 function getCookieValue(name) {
 	const value = `; ${document.cookie}`;
 	const parts = value.split(`; ${name}=`);
 	if (parts.length === 2) return parts.pop().split(';').shift();
 }
-
-//function checkCookieMessage(e){var t=document.getElementById("cookie-button");null==getCookie("uid")?(t.textContent="Zapisz kod w pamięci przeglądarki",t.setAttribute("onclick","setCookie('uid', '"+e+"', 90, '"+e+"');")):(t.textContent="Usuń kod z pamięci przeglądarki",t.setAttribute("onclick","deleteCookie('uid', '"+e+"');"))}
 
 function checkCookieMessage(currentUID) {
 	var li = document.getElementById('cookie-button');
@@ -145,8 +134,6 @@ function checkCookieMessage(currentUID) {
 			li.setAttribute('onclick', "deleteCookie('uid', '" + currentUID + "');");
 		}
 }
-
-//function checkCookieEnrollmentBeginButton(){var e=document.getElementById("enrollment-begin-button-container");if(null!=getCookie("nameSurname")){var t=getCookieValue("nameSurname");e.innerHTML="Witamy ponownie, "+t+"!"}}
 
 function checkCookieEnrollmentBeginButton() {
 	var enrBeginButtonContainer = document.getElementById('enrollment-begin-button-container');
